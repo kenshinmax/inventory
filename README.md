@@ -1,0 +1,2 @@
+# inventory
+Node inventory service
