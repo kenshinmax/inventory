@@ -5,6 +5,8 @@
   "author": "kenshinmax",
   "license": "ISC",
   "dependencies": {
+    "@opentelemetry/api": "^1.4.1",
+    "@splunk/otel": "^2.2.4",
     "axios": "^1.4.0",
     "body-parser": "^1.20.2",
     "bootstrap": "^5.2.3",
