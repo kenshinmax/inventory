@@ -5,14 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node -r ./tracing.js app.js"
+    "dev": "node -r @splunk/otel/instrument app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@opentelemetry/api": "^1.7.0",
-    "@opentelemetry/auto-instrumentations-node": "^0.40.1",
-    "@opentelemetry/sdk-node": "^0.45.1",
+    "@splunk/otel": "^2.5.1",
     "cors": "^2.8.5",
     "express": "^4.17.2"
   }
