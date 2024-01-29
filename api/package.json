@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@splunk/otel": "^2.5.1",
+    "@splunk/otel": "^2.6.1",
     "cors": "^2.8.5",
     "express": "^4.17.2"
   }

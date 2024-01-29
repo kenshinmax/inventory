@@ -14,3 +14,8 @@ services:
     ports:
       - '3000:3000'
     stdin_open: true
+  mongodb:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=pass
