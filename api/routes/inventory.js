@@ -1,15 +1,18 @@
 const express = require("express");
-const properties = require("../package.json");
 
-const inventoryRoute = express.Router();
 
-inventoryRoute.get("/", (req, res) => {
-    const inventoryInfo = {
-        name: properties.name,
-        description: properties.description,
-        author: properties.author
+const router = express.Router();
+
+router.get("/", (req, res) => {
+    const productInventory = {
+       name: "Minecraft Hero",
+       quantity: 12
     }
-    res.json(inventoryInfo)
+    
+    return res.status(201).json({
+        meesage: 'product info',
+        productInventory
+    })
 })
 
 

@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react'
 import './App.css';
 
 function App() {
-  const [blogs, setBlogs] = useState([])
+  const [products, setProducts] = useState([])
   useEffect(() => {
-    fetch('http://localhost:4000/')
+    fetch('http://localhost:4000/inventory')
       .then(res => res.json())
-      .then(data => setBlogs(data))
+      .then(data => setProducts(data))
   }, [])
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>all blogs</h1>
-        {blogs && blogs.map(blog => (
-          <div key={blog.id}>{blog.title}</div>
+        {products && products.map(product => (
+          <div key={product.name}>{product.quantity}</div>
         ))}
       </header>
     </div>
