@@ -1,21 +1,46 @@
 version: "3.8"
 services:
-  api:
+   mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    container_name: mongodb-myapp-1
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    volumes:
+      - ./data:/data/db
+    networks:
+      - app-network
+   api:
     build: ./api
     container_name: api_c
-    ports:
-      - '4000:4000'
+    depends_on:
+      - mongodb
     volumes:
       - ./api:/app
       - /app/node_modules
-  client:
+    environment:
+      - DB_HOST=mongodb
+      - DB_USER=user
+      - DB_PASSWORD=pass
+      - DB_NAME=admin
+      - DB_PORT=27017
+      - MONGO_URI=mongodb://mongodb:27017/admin
+    ports:
+      - '4000:4000'
+    networks:
+      - app-network
+    links:
+     - mongodb
+   client:
     build: ./client
     container_name: client_c
     ports:
       - '3000:3000'
     stdin_open: true
-  mongodb:
-    image: mongo
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=user
-      - MONGO_INITDB_ROOT_PASSWORD=pass
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
