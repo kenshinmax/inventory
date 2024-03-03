@@ -1,0 +1,3 @@
+mongodb
+mongo
+exit
